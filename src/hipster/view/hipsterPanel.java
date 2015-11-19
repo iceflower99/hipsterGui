@@ -1,21 +1,37 @@
 package hipster.view;
-
-
-
-
 import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import hipster.controller.HipsterAppController;
-public class hipsterPanel
+public class HipsterPanel
 {
+	private HipsterAppController baseController;
+	private SpringLayout baseLayout;
+	private JComboBox<String> phraseComboBox;
+	private JLabel bookPageCountLabel;
+	private JLabel bookAuthorLabel;
+	private JLabel bookSubjectLabel;
+	private JLabel bookTitleLabel;
+	private JLabel bookPriceLabel;
+	private JButton changeBookButton;
+	private int maxClicks;
+	private int startClick;
+	
+	
 	public HipsterPanel(HipsterAppController baseController)
 	{
 		this.baseController=baseController;
-		baseLayout=newSpringLayout();
+		baseLayout=new SpringLayout();
+		bookPageCountLabel=new JLabel("the page count");
+		bookAuthorLabel=new JLabel("the author");
+		bookPriceLabel=new JLabel("the price");
+		bookSubjectLabel=new JLabel("the subject");
+		bookTitleLabel=new JLabel("the title");
+		changeBookButton=new JButton("Change books");
 		phraseComboBox=new JComboBox<String>();
-		
+		maxClicks= baseController.getFirstHipster().getHipsterBooks().length;
+		startClick = 0;
 		setupComboBox();
 		setupPanel();
 		setupLayout();
@@ -50,7 +66,7 @@ public class hipsterPanel
     			  String updatedTitle = phraseComboBox.getSelectedItem().toString();
     			  baseController.getBaseFrame().setTitle(updatedTitle);
     		  }
-    	  }
+    	  });
       }
 }
 
