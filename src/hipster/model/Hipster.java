@@ -40,6 +40,7 @@ public class Hipster
 	  
 	  thirdBook=new Book();
 	  thirdBook.setAuthor("Orson ScottCard ");
+	  thirdBook.setTitle("Edners game");
 	  thirdBook.setSubject("Science Fiction");
 	  thirdBook.setPageCount(350);
 	  thirdBook.setPrice(9.96);
